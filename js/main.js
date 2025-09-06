@@ -390,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
     appearance.forEach((section) => {
         gsap.fromTo(section, {
             opacity: 0,
-            y: 40,
+            y: 30,
             scale: 1.04,
             ease: 'sine',
         }, {
@@ -875,7 +875,7 @@ document.addEventListener("DOMContentLoaded", function () {
         appearance.forEach((section) => {
             gsap.fromTo(section, {
                 opacity: 0,
-                y: 40,
+                y: 30,
                 scale: 1.04,
                 ease: 'sine',
             }, {
