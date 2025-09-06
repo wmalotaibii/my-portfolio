@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollSmoother.create({
         smooth: 1,
         effects: true,
-        smoothTouch: false,
+        smoothTouch: false, // يعطل السموث على الجوال
     });
 
     /* -------------------------------------------
@@ -1130,3 +1130,19 @@ fetch(`https://api.github.com/repos/${username}/${repoName}`)
   })
   .catch(error => console.error("Error fetching repo:", error));
 
+
+
+
+  function isMobile() {
+    return /Mobi|Android/i.test(navigator.userAgent);
+  }
+
+  function closePopup() {
+    document.getElementById("mobilePopup").style.display = "none";
+  }
+
+  window.onload = function() {
+    if(isMobile()) {
+      document.getElementById("mobilePopup").style.display = "flex";
+    }
+  }

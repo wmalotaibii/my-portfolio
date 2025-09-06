@@ -647,9 +647,7 @@ a {
 .mil-bold {
   font-weight: 600;
 }
-.underline{
-  text-decoration: underline;
-}
+
 .text-transform-capitalize{
   text-transform:capitalize;
   font-family: "Outfit", sans-serif;
@@ -2422,70 +2420,11 @@ circle text
   font-size: 24px;
   color: #f1d486;
 }
-
-.mil-circle-text-frame .mil-circle-text .mil-arrow {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: #353639;
-}
-.mil-circle-text-frame .mil-circle-text .mil-arrow i {
-  font-size: 24px;
-  color: #f1d486;
-}
-
 @media (max-width: 992px) {
   .mil-circle-text-frame {
     display: none;
   }
 }
-
-
-
-.cv-download {
-  display: flex;
-  align-items: center;
-  gap: 10px; 
-  margin-top: 20px;
-
-
-}
-
-
-
-.cv-download .scroll-down {
-  width: 25px;
-  height: 25px;
-  background:#170a7b;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s ease;
-}
-
-.cv-download .scroll-down i {
-  color: #fff;
- 
-}
-
-.cv-download .scroll-down:hover {
-  background:  #f1d486;
-}
-
-
 
 /* -------------------------------------------
 
@@ -5305,7 +5244,7 @@ footer
 
 .logo-track {
   display: flex;
-  gap: 40px; /* مسافة ثابتة بين الصور */
+  gap: 40px; /* Ù…Ø³Ø§ÙØ© Ø«Ø§Ø¨ØªØ© Ø¨ÙŠÙ† Ø§Ù„ØµÙˆØ± */
   width: max-content;
   animation: scroll-left 25s linear infinite;
 }
@@ -5325,13 +5264,13 @@ footer
   opacity: 1;
 }
 
-
+/* Ø§Ù„ÙŠØ³Ø§Ø± */
 @keyframes scroll-left {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
 
-
+/* Ø§Ù„ÙŠÙ…ÙŠÙ† */
 @keyframes scroll-right {
   0%   { transform: translateX(-100%); }
   100% { transform: translateX(0); }
@@ -5458,63 +5397,12 @@ footer
 
 /* end github */
 
-
-
-
-
-/* Popup style */
-
-
-
-
-
-
-
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto !important;
+  }
+  .mil-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
-.popup-content {
-  background: #fff;
-  border-radius: 20px;
-  padding: 30px;
-  text-align: center;
-  width: 90%;
-  max-width: 400px;
-  animation: pop 0.3s ease-in-out;
-  position: relative;
-}
-.popup-icon {
-  width: 80px;
-  margin-bottom: 15px;
-}
-/* نفس حركة levitate-sm */
-.mil-levitate {
-  animation: levitate-sm 4s ease-in-out infinite;
-}
-@keyframes levitate-sm {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.popup button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  background: #e4e3e3;
-  color: #000000;
-  font-family: "Anton", sans-serif;
-  border-radius: 8px;
-  cursor: pointer;
-}
-@keyframes pop {
-  from { transform: scale(0.8); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
-
