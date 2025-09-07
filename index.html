@@ -46,8 +46,6 @@
 <meta name="twitter:description" content="Explore my portfolio of projects, ERP integrations, and modern websites.">
 <meta name="twitter:image" content="https://wejdan.dev/img/OG/preview.png">
 
-
-
 <meta name="description" content="Explore my portfolio showcasing modern web development, responsive design, and creative digital solutions. Discover my projects, skills, and experience.">
 
 
@@ -61,8 +59,8 @@
       <img src="/img/shapes/!.png" 
            alt="Warning" class="popup-icon mil-levitate">
       <h2>Mobile Version</h2>
-      <p>👋 Hi there! The mobile version of my portfolio isn’t ready yet.  
-I’m actively building it to make your experience smoother — stay tuned! 🚀</p>
+      <p>The mobile version of this site is still under development.  
+         Please check back soon, I’m working on it! 🚀</p>
       <button onclick="closePopup()">Got it</button>
     </div>
   </div>
@@ -78,7 +76,7 @@ I’m actively building it to make your experience smoother — stay tuned! 🚀
         <!-- cursor end -->
 
         <!-- preloader -->
-       <div class="mil-preloader">
+      <div class="mil-preloader">
             <div class="mil-preloader-animation">
                 <div class="mil-pos-abs mil-animation-1">
                     <p class="mil-head1 mil-m1">BUILDING </p>
@@ -92,7 +90,7 @@ I’m actively building it to make your experience smoother — stay tuned! 🚀
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>  
         <!-- preloader end -->
 
         <!-- scroll progress -->
@@ -151,13 +149,15 @@ I’m actively building it to make your experience smoother — stay tuned! 🚀
                                     </span>
                                 </a>
                             </div>
-                            <!-- <div class="mil-hero-img mil-up">
-                                <img src="img/home-1/N2j1.gif" alt="hero" class="mil-scale-img" data-value-1="1.25" data-value-2="1">
-                            </div> -->
+                           
                             <div class="mil-hero-img mil-up">
-                                <video style="    width: -webkit-fill-available;
-" autoplay loop muted playsinline class="mil-scale-img" data-value-1="1.25" data-value-2="1">
+                                <video class="desktop-video" autoplay loop muted playsinline>
                                   <source src="img/home-1/Hello-2-white.mov" type="video/mp4">
+                                  Your browser does not support the video tag.
+                                </video>
+                              
+                                <video class="mobile-video" autoplay loop muted playsinline>
+                                  <source src="img/home-1/Hello-mobile.mov" type="video/mp4">
                                   Your browser does not support the video tag.
                                 </video>
                               </div>
@@ -178,12 +178,12 @@ I’m actively building it to make your experience smoother — stay tuned! 🚀
 
                                    
                                     <p class="mil-text-sm   mil-up">
-                                        From websites to enterprise systems, I love solving problems with code.    
+                                        From websites to enterprise systems,  </p>   <p class="mil-text-sm   mil-up">tI love solving problems with code.    
                                     </p>
 
                                     <div class="cv-download  mil-up">
                                         <span class="">Download Resume</span>
-                                        <a href="files/Wejdan-Alotaibi-Resume.pdf" target="_blank" class="scroll-down">
+                                        <a href="files/Wejdan-Alotaibi-Resume.pdf" target="_blank" class="scroll-down" aria-label="Download Resume">
                                           <i class="fas fa-arrow-down"></i>
                                         </a>
                                       </div>
@@ -466,7 +466,10 @@ I’m actively building it to make your experience smoother — stay tuned! 🚀
                                     <div class="mil-deco mil-up"><img src="img/shapes/4.png" alt="shape" class="mil-parallax-img" data-value-1="20%" data-value-2="50%"></div>
                                 </div>
                                 <p class="mil-stylized mil-m2 mil-mb60 mil-up">ACHIEVEMENTS</p>
-                                <h2 class="mil-display3 mil-rubber mil-mb60 mil-up">The Latest<br><span class="mil-a1">Certificates</span></h2>
+                                <h2 class="mil-display3 mil-rubber  mil-up">The Latest </h2>
+                                <h2 class="mil-display3  mil-up">
+                                    <span class="mil-a1">Certificates</span>
+                                </h2>
                                 
                             </div>
                             <div class="mil-image-box">
@@ -543,11 +546,11 @@ I’m actively building it to make your experience smoother — stay tuned! 🚀
                                     <div class="mil-footer-menu-frame mil-mb90 mil-up">
                                       
                                         <ul class="mil-social mil-c-gone">
-                                            <li><a href="https://www.linkedin.com/in/wejdan-alotaibi1" target="_blank" data-no-swup><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a href="https://github.com/wmalotaibii" target="_blank" data-no-swup><i class="fab fa-github"></i></a></li>
+                                            <li><a href="https://www.linkedin.com/in/wejdan-alotaibi1" target="_blank" aria-label="Wejdan Alotaibi on LinkedIn" data-no-swup><i class="fab fa-linkedin-in"></i></a></li>
+                                            <li><a href="https://github.com/wmalotaibii" target="_blank" aria-label="Wejdan Alotaibi " data-no-swup><i class="fab fa-github"></i></a></li>
                                            
-                                            <li><a href="mailto:wmalotaibii@gmail.com" target="_blank" data-no-swup><i class="far fa-envelope"></i></a></li>
-                                            <li><a href="tel:+966535346686" target="_blank" data-no-swup><i class="fas fa-phone"></i></a></li>
+                                            <li><a href="mailto:wmalotaibii@gmail.com" target="_blank" aria-label="Wejdan Alotaibi " data-no-swup><i class="far fa-envelope"></i></a></li>
+                                            <li><a href="tel:+966535346686" target="_blank" aria-label="Wejdan Alotaibi " data-no-swup><i class="fas fa-phone"></i></a></li>
                                           </ul>
                                           
                                     </div>
@@ -578,7 +581,7 @@ I’m actively building it to make your experience smoother — stay tuned! 🚀
     <!-- gsap js -->
     <script src="js/plugins/gsap.min.js"></script>
     <!-- scroll smoother -->
-    <script src="js/plugins/ScrollSmoother.min.js"></script>
+ <script src="js/plugins/ScrollSmoother.min.js"></script>
     <!-- scroll trigger js -->
     <script src="js/plugins/ScrollTrigger.min.js"></script>
     <!-- scroll to js -->
@@ -589,7 +592,7 @@ I’m actively building it to make your experience smoother — stay tuned! 🚀
     <script src="js/plugins/parallax.js"></script>
 
 
-    <!-- pixy js -->
+    <!--  js -->
     <script src="js/main.js"></script>
 
 </body>
