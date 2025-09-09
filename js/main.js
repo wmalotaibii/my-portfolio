@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
       //"What’s Wejdan’s secret?"
       if (userMessage === "What’s Wejdan’s secret?") {
-        const customReply = "The secret is adapting fast: from websites to ERP, from frontend to backend, I make it all fit together";
+        const customReply = "The secret is adapting fast: from websites to ERP, from frontend to backend, she makes it all fit together.";
         messages.innerHTML += `<div class="ai">AI: ${customReply}</div>`;
         messages.scrollTop = messages.scrollHeight;
         return; // 
