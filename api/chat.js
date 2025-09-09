@@ -8,10 +8,11 @@ export default async function handler(req, res) {
 
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey) {
-      return res.status(500).json({ error: "❌ API Key not found in server" });
+      console.error("❌ API Key missing");
+      return res.status(500).json({ error: "API Key not found" });
     }
 
-    // ✅ استدعاء API
+    // ✅ طلب API
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -19,26 +20,29 @@ export default async function handler(req, res) {
         "Authorization": `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo", // أو gpt-4 إذا عندك
+        model: "gpt-3.5-turbo",
         messages: [{ role: "user", content: message }],
       }),
     });
 
     const data = await response.json();
 
+    // ✅ طباعة كاملة للـ Logs في Vercel
+    console.log("🔍 Raw OpenAI response:", JSON.stringify(data, null, 2));
+
     if (!response.ok) {
-      return res.status(500).json({ error: data.error?.message || "Unknown error" });
+      return res.status(500).json({ error: data.error?.message || "Unknown API error" });
     }
 
-    // ✅ جلب النص من الرد
     const aiReply = data?.choices?.[0]?.message?.content?.trim();
 
     if (!aiReply) {
-      return res.status(500).json({ error: "AI reply is empty or undefined" });
+      return res.status(500).json({ error: "AI reply is empty" });
     }
 
     res.status(200).json({ reply: aiReply });
   } catch (err) {
+    console.error("❌ Server error:", err);
     res.status(500).json({ error: err.message });
   }
 }
