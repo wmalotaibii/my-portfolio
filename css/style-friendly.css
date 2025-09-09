@@ -78,13 +78,13 @@ main
 }
 
 *::-moz-selection {
-  color: inherit;
-  background-color: transparent;
+  color: #000000;
+  background-color: #f1d486;
 }
 
 *::selection {
-  color: inherit;
-  background-color: transparent;
+  color: #000000;
+  background-color: #f1d486;
 }
 
 *,
@@ -649,7 +649,7 @@ a {
 }
 
 .mil-head5 {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 120%;
 }
 
@@ -708,6 +708,18 @@ a {
   /* color: #cfb474; */
 }
 
+.mil-a3 {
+
+ color: #cfb474; 
+}
+.mil-white {
+  color:  #ffffff!important;
+  /* color: #cfb474; */
+}
+.mil-white-2 {
+  color:  #d0d0d0!important;
+  /* color: #cfb474; */
+}
 .mil-m1-bg {
   background-color: #353639;
 }
@@ -1252,7 +1264,9 @@ spaces
 .mil-mb30 {
   margin-bottom: 30px;
 }
-
+.mil-mb3 {
+  margin-bottom: 15px;
+}
 .mil-mb40 {
   margin-bottom: 40px;
 }
@@ -1321,7 +1335,15 @@ spaces
   padding-bottom: 100px;
 }
 
+.mil-p-50-50 {
+  padding-top: 130px;
+}
+
 @media screen and (max-width: 768px) {
+  .mil-p-50-50 {
+    padding-top: 70px;
+  }
+  
   .mil-mb130 {
     margin-bottom: 90px;
   }
@@ -1390,7 +1412,7 @@ hero 1
   overflow: hidden;
 }
 .mil-hero-1 .mil-hero-main {
-  height: 100vh;
+  height: 80vh;
 }
 .mil-hero-1 .mil-hero-main .mil-hero-text {
   width: 100%;
@@ -3666,6 +3688,7 @@ half container
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+
 }
 .mil-half-container .mil-text-box {
   position: relative;
@@ -3687,13 +3710,13 @@ half container
   content: "";
   width: 50vw;
   height: 100%;
-  background: linear-gradient(308.26deg, #181819 0%, #353639 100%);
+  background:#5ea8e9;
   position: absolute;
   top: 0;
   right: 0;
 }
 .mil-half-container .mil-text-box.mil-g-m1:before {
-  background: linear-gradient(308.26deg, #1c1d1f 0%, #353639 100%);
+  background-color: #170a7b;
 }
 .mil-half-container .mil-text-box.mil-g-m3:before {
   background: linear-gradient(308.26deg, #eaeaea 0%, #ebe9e9 100%);
@@ -3743,13 +3766,13 @@ half container
   pointer-events: none;
   width: 100%;
   height: 100%;
-  background-color: rgba(53, 54, 57, 0.15);
+  /* background-color: rgba(53, 54, 57, 0.15); */
   position: absolute;
   top: 0;
   left: 0;
 }
 .mil-half-container .mil-image-box .mil-live-image-frame {
-  background-color: #170a7b;
+  background-color: #5ea8e9;
   width: 50vw;
   height: 100%;
   position: absolute;
@@ -3765,8 +3788,8 @@ half container
   position: absolute;
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(53, 54, 57, 0)), to(#353639));
-  background: linear-gradient(180deg, rgba(53, 54, 57, 0) 0%, #353639 100%);
+  /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(53, 54, 57, 0)), to(#353639));
+  background: linear-gradient(180deg, rgba(53, 54, 57, 0) 0%, #353639 100%); */
   opacity: 0.2;
 }
 .mil-half-container .mil-image-box .mil-live-image-frame .mil-scene-frame .mil-scene {
@@ -3830,9 +3853,9 @@ half container
   width: 50%;
   position: relative;
 }
-.mil-half-container.mil-stl .mil-image-box .mil-image-frame .mil-overlay {
+/* .mil-half-container.mil-stl .mil-image-box .mil-image-frame .mil-overlay {
   background-color: rgba(236, 236, 234, 0.3);
-}
+} */
 @media (max-width: 992px) {
   .mil-half-container {
     -webkit-box-orient: vertical;
@@ -3920,6 +3943,10 @@ half container
 .mil-button-pad.mil-a1 {
   background-color: #f1d486;
 }
+.mil-button-pad.mil-a3 {
+  background-color:#57a0e2;
+}
+
 .mil-button-pad.mil-a2 {
   background-color: #170a7b;
 }
@@ -5649,4 +5676,256 @@ footer
   border-radius: 10px;
   cursor: pointer;
 }
+
+
+
+
+
+
+/* AI Chat Card */
+.ai-chat-card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+  
+}
+
+.ai-chat-header h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+.ai-chat-header p {
+  font-size: 13px;
+  margin: 4px 0 15px;
+  color: #777;
+}
+
+/* Chat messages box */
+/* .ai-chat-body {
+  background: #fafafa;
+  border-radius: 12px;
+  min-height: 120px;
+  padding: 12px;
+  margin-bottom: 15px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+} */
+
+
+/* صندوق الرسائل */
+.ai-chat-body {
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* مسافة بين الرسائل */
+}
+
+/* رسائل المستخدم */
+.ai-chat-body .user {
+  align-self: flex-end;
+  background: #10069F; /* أزرق */
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 15px 15px 0 15px;
+  max-width: 70%;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* رسائل AI */
+.ai-chat-body .ai {
+  align-self: flex-start;
+  background: #f1f1f1;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 15px 15px 15px 0;
+  max-width: 70%;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+
+
+
+
+.ai-chat-input {
+  display: flex;
+  align-items: center;
+  border-radius: 25px; /* نفس الكارد */
+  padding: 2px; /* السماكة */
+  background: linear-gradient(90deg, #10069F, #9DCA80, #B59E5F); /* التدرج للبوردر */
+}
+
+
+
+.ai-chat-input-inner input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: transparent;
+  padding: 8px;
+}
+
+
+
+
+
+
+
+.ai-chat-input-inner {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 23px;
+  flex: 1;
+  padding: 6px 10px;
+}
+
+.ai-chat-input-inner textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: transparent;
+  padding: 8px;
+  resize: none; /* يمنع السحب */
+  line-height: 1.4;
+  max-height: calc(2.4em * 4 + 16px); /* ٤ سطور */
+  overflow-y: auto; /* يظهر سكرول إذا زاد النص */
+}
+
+.ai-chat-input-inner button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 6px;
+  font-size: 16px;
+}
+
+
+
+
+.ai-chat-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 18px; /* أقل شوي عشان يدخل داخل البوردر */
+  background: #fff; /* الخلفية داخل البوردر */
+}
+/* Send button */
+.ai-chat-input button {
+  background: #10069F;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.ai-chat-input button:hover {
+  background: #0d057a;
+}
+
+/* Icons */
+.ai-chat-icons {
+  display: flex;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.ai-chat-icons button {
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.ai-chat-icons button:hover {
+  background: #eee;
+}
+
+/* Suggestions */
+.ai-chat-suggestions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.ai-chat-suggestions button {
+  border: 1px solid #ddd;
+  background: #fafafa;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ai-chat-suggestions button:hover {
+  background: #f0f0f0;
+}
+
+
+
+
+
+.ai-chat-card-subtext{
+  position: absolute;
+    /* font-weight: 500; */
+    /* font-size: 10px; */
+    color: white;
+    text-align: justify;
+    margin: 0 auto;
+    background-color: #0d057a;
+    /* margin-top: -10px !important; */
+    border-radius: 20px;
+padding: 30px 20px 10px 20px;
+
+
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    z-index: 1;
+    bottom: -30px;
+    right: 0;
+    left: 0;
+}
+
 
