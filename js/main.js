@@ -177,3 +177,63 @@ fetch(`https://api.github.com/repos/${username}/${repoName}`)
 function isMobile() { return /Mobi|Android/i.test(navigator.userAgent); }
 function closePopup() { document.getElementById("mobilePopup").style.display = "none"; }
 window.onload = function() { if(isMobile()) { document.getElementById("mobilePopup").style.display = "flex"; } }
+
+
+
+
+
+
+/* -------------------------------------------
+    ruber letters
+------------------------------------------- */
+const headings = document.querySelectorAll('.mil-rubber');
+
+headings.forEach(heading => {
+    const textNodes = [];
+
+    heading.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) {
+            node.textContent.split(' ').forEach((word, index, array) => {
+                const wordSpan = document.createElement('span');
+                wordSpan.classList.add('mil-word-span');
+                word.split('').forEach(letter => {
+                    const letterSpan = document.createElement('span');
+                    letterSpan.classList.add('mil-letter-span');
+                    letterSpan.textContent = letter;
+                    wordSpan.appendChild(letterSpan);
+                });
+                textNodes.push(wordSpan);
+                if (index < array.length - 1) {
+                    textNodes.push(document.createTextNode(' '));
+                }
+            });
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            textNodes.push(node.cloneNode(true));
+        }
+    });
+
+    heading.innerHTML = '';
+    textNodes.forEach(node => heading.appendChild(node));
+
+    const letters = heading.querySelectorAll('.mil-letter-span');
+    letters.forEach(letter => {
+        letter.addEventListener('mouseenter', () => {
+            gsap.to(letter, {
+                scaleY: 1.1,
+                y: '-5%',
+                duration: 0.2,
+                ease: 'sine'
+            });
+        });
+
+        letter.addEventListener('mouseleave', () => {
+            gsap.to(letter, {
+                scaleY: 1,
+                y: '0%',
+                duration: 0.2,
+                ease: 'sine'
+            });
+        });
+    });
+});
+
