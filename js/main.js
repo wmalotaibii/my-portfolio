@@ -248,42 +248,46 @@ headings.forEach(heading => {
 
 
 
-
-
-
 // ---------- AI Chat Integration ----------
 document.addEventListener("DOMContentLoaded", () => {
-    const sendBtn = document.getElementById("send-btn");
-    const userInput = document.getElementById("user-input");
-    const messages = document.getElementById("messages");
-  
-    async function sendMessage() {
-      const userMessage = userInput.value.trim();
-      if (!userMessage) return;
-  
-      messages.innerHTML += `<div class="user">You: ${userMessage}</div>`;
-      userInput.value = "";
-  
-      try {
-        const res = await fetch("/api/chat", {  
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: userMessage }),
-        });
-  
-        const data = await res.json();
-        messages.innerHTML += `<div class="ai">AI: ${data.reply}</div>`;
-        messages.scrollTop = messages.scrollHeight;
-      } catch (err) {
-        messages.innerHTML += `<div class="ai">Error: Unable to connect to AI</div>`;
-      }
-    }
-  
-    if (sendBtn) {
-      sendBtn.addEventListener("click", sendMessage);
-      userInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") sendMessage();
+  const sendBtn = document.getElementById("send-btn");
+  const userInput = document.getElementById("user-input");
+  const messages = document.getElementById("messages");
+
+  async function sendMessage() {
+    const userMessage = userInput.value.trim();
+    if (!userMessage) return;
+
+    messages.innerHTML += `<div class="user">You: ${userMessage}</div>`;
+    userInput.value = "";
+
+    try {
+      const res = await fetch("/api/chat", {   // ⚡️ بدون .js
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMessage }),
       });
+
+      const data = await res.json();
+
+      console.log("AI Response:", data); // 🐞 Debug
+
+      if (data.reply) {
+        messages.innerHTML += `<div class="ai">AI: ${data.reply}</div>`;
+      } else {
+        messages.innerHTML += `<div class="ai">⚠️ No reply from AI</div>`;
+      }
+
+      messages.scrollTop = messages.scrollHeight;
+    } catch (err) {
+      messages.innerHTML += `<div class="ai">❌ Error: Unable to connect to AI</div>`;
     }
-  });
-  
+  }
+
+  if (sendBtn) {
+    sendBtn.addEventListener("click", sendMessage);
+    userInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+  }
+});
