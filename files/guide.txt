@@ -1,0 +1,42 @@
+Guide: How I Integrated AI into My Portfolio Website
+
+1. Preparing the Project
+- Built the portfolio using HTML, CSS, and JavaScript as the main stack.
+- Organized assets into clear folders (/css, /js, /img).
+- Added a dedicated section in the website for the AI Assistant.
+
+2. Frontend Setup
+- Designed an AI Chat Card with:
+  - Chat body for displaying messages.
+  - Input area.
+  - Action buttons.
+  - Send button ➤.
+- Used responsive design to ensure compatibility on desktop and mobile.
+- Added interactive touches with GSAP animations.
+
+3. Backend / API Integration
+- Created an endpoint /api/chat.js.
+- Inside it:
+  - Imported the OpenAI SDK.
+  - Configured the API key securely through Vercel Environment Variables.
+  - Sent user messages to the AI model (gpt-4o-mini or equivalent).
+  - Returned structured replies as JSON.
+
+4. JavaScript Logic
+- Added logic in main.js to:
+  - Capture user input.
+  - Append both user messages and AI responses into the chat body.
+  - Scroll automatically to the latest message.
+  - Handle errors with a fallback message ("Unable to connect to AI").
+
+5. Deployment on Vercel
+- Connected the project repo from GitHub to Vercel.
+- Configured Environment Variables in Vercel dashboard:
+  - OPENAI_API_KEY = sk-xxxxxx
+- Deployed the site, then verified the logs to confirm the API was working.
+
+6. Testing & Enhancements
+- Verified on both desktop and mobile.
+
+Result:
+The portfolio now includes a fully functional, interactive AI Assistant integrated directly into the website, styled consistently, and powered by OpenAI’s API.
