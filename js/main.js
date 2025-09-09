@@ -251,8 +251,6 @@ headings.forEach(heading => {
 
 
 
-
-
 // ---------- AI Chat Integration ----------
 document.addEventListener("DOMContentLoaded", () => {
     const sendBtn = document.getElementById("send-btn");
@@ -267,11 +265,12 @@ document.addEventListener("DOMContentLoaded", () => {
       userInput.value = "";
   
       try {
-        const res = await fetch("chat.php", {
+        const res = await fetch("/api/chat", {  
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: userMessage }),
         });
+  
         const data = await res.json();
         messages.innerHTML += `<div class="ai">AI: ${data.reply}</div>`;
         messages.scrollTop = messages.scrollHeight;
