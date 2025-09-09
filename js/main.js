@@ -257,6 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const messages = document.getElementById("messages");
   
     async function sendMessage(userMessage) {
+      // لو جاي من التكست
       if (!userMessage) {
         userMessage = userInput.value.trim();
         if (!userMessage) return;
@@ -267,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
       //"What’s Wejdan’s secret?"
       if (userMessage === "What’s Wejdan’s secret?") {
-        const customReply = "The secret is adapting fast: from websites to ERP, from frontend to backend, I make it all fit together";
+        const customReply = "The secret is adapting fast: from websites to ERP, from frontend to backend, she makes it all fit together.";
         messages.innerHTML += `<div class="ai">AI: ${customReply}</div>`;
         messages.scrollTop = messages.scrollHeight;
         return; // 
