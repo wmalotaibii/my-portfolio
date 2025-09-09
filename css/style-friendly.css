@@ -5589,3 +5589,64 @@ footer
   .desktop-video { display: none; }
   .mobile-video { display: block; }
 }
+
+
+
+
+
+/* AI Chat Section */
+.mil-chat-box {
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 20px;
+  background: #fff;
+  text-align: left;
+}
+
+.mil-messages {
+  height: 250px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.mil-messages div {
+  margin: 8px 0;
+}
+
+.mil-messages .user {
+  font-weight: bold;
+  color: #170a7b;
+}
+
+.mil-messages .ai {
+  font-weight: bold;
+  color: #5ea8e9;
+}
+
+.mil-chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.mil-chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.mil-chat-input button {
+  padding: 10px 20px;
+  border: none;
+  background: #170a7b;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
