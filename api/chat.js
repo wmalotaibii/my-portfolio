@@ -1,3 +1,4 @@
+// api/chat.js
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -6,43 +7,36 @@ export default async function handler(req, res) {
   try {
     const { message } = req.body;
 
-    const apiKey = process.env.OPENAI_API_KEY;
-    if (!apiKey) {
-      console.error("❌ API Key missing");
-      return res.status(500).json({ error: "API Key not found" });
+    if (!process.env.OPENAI_API_KEY) {
+      return res.status(500).json({ error: "❌ API Key not found" });
     }
 
-    // ✅ طلب API
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`,
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: message }],
+        model: "openai/gpt-3.5-turbo", // تقدري تغيّريها إلى موديل آخر مدعوم من OpenRouter
+        messages: [
+          { role: "system", content: "You are a helpful AI assistant inside Wejdan's portfolio website." },
+          { role: "user", content: message }
+        ],
       }),
     });
 
     const data = await response.json();
 
-    // ✅ طباعة كاملة للـ Logs في Vercel
-    console.log("🔍 Raw OpenAI response:", JSON.stringify(data, null, 2));
-
-    if (!response.ok) {
-      return res.status(500).json({ error: data.error?.message || "Unknown API error" });
+    if (data.error) {
+      return res.status(500).json({ error: data.error.message });
     }
 
-    const aiReply = data?.choices?.[0]?.message?.content?.trim();
+    const reply = data.choices?.[0]?.message?.content || "⚠️ No reply from AI";
+    return res.status(200).json({ reply });
 
-    if (!aiReply) {
-      return res.status(500).json({ error: "AI reply is empty" });
-    }
-
-    res.status(200).json({ reply: aiReply });
-  } catch (err) {
-    console.error("❌ Server error:", err);
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error("AI API Error:", error);
+    return res.status(500).json({ error: "Server error, unable to connect to AI" });
   }
 }
