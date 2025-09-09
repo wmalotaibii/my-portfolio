@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   try {
     const { message } = req.body;
 
-    if (!process.env.OPENAI_API_KEY) {
+    if (!process.env.OPENROUTER_API_KEY) {
       return res.status(500).json({ error: "❌ API Key not found" });
     }
 
@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
       },
       body: JSON.stringify({
         model: "openai/gpt-3.5-turbo", // تقدرين تغيرين الموديل لو حبيتي
