@@ -1,4 +1,4 @@
-// api/chat.js
+// /api/chat.js
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -7,11 +7,9 @@ export default async function handler(req, res) {
   try {
     const { message } = req.body;
 
-    // 🔑 جيب المفتاح من الـ Environment Variables
     const apiKey = process.env.OPENAI_API_KEY;
-
     if (!apiKey) {
-      throw new Error("Missing API Key");
+      throw new Error("API Key is missing");
     }
 
     // ✅ استدعاء OpenAI API
@@ -22,7 +20,7 @@ export default async function handler(req, res) {
         "Authorization": `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "gpt-3.5-turbo",
+        model: "gpt-3.5-turbo", // ممكن تبدليها gpt-4 إذا عندك صلاحية
         messages: [{ role: "user", content: message }],
       }),
     });
@@ -33,6 +31,7 @@ export default async function handler(req, res) {
       throw new Error(data.error.message);
     }
 
+    // ✅ رجع رد الذكاء الصناعي للفرونت
     res.status(200).json({ reply: data.choices[0].message.content });
   } catch (err) {
     res.status(500).json({ error: err.message });
