@@ -15,13 +15,13 @@ export default async function handler(req, res) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "openai/gpt-3.5-turbo", // تقدري تغيّريها إلى موديل آخر مدعوم من OpenRouter
+        model: "openai/gpt-3.5-turbo", // تقدرين تغيرين الموديل لو حبيتي
         messages: [
           { role: "system", content: "You are a helpful AI assistant inside Wejdan's portfolio website." },
-          { role: "user", content: message }
+          { role: "user", content: message },
         ],
       }),
     });
@@ -29,14 +29,19 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     if (data.error) {
+      console.error("❌ API Error:", data.error);
       return res.status(500).json({ error: data.error.message });
     }
 
-    const reply = data.choices?.[0]?.message?.content || "⚠️ No reply from AI";
-    return res.status(200).json({ reply });
+    // ✅ جلب الرد سواء من message.content أو text
+    const reply =
+      data.choices?.[0]?.message?.content ||
+      data.choices?.[0]?.text ||
+      "⚠️ No reply from AI";
 
+    return res.status(200).json({ reply });
   } catch (error) {
-    console.error("AI API Error:", error);
-    return res.status(500).json({ error: "Server error, unable to connect to AI" });
+    console.error("❌ Server error:", error);
+    return res.status(500).json({ error: "Server error: " + error.message });
   }
 }
