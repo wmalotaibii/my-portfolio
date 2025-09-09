@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
       //"What’s Wejdan’s secret?"
       if (userMessage === "What’s Wejdan’s secret?") {
-        const customReply = "The secret is adapting fast: from websites to ERP, from frontend to backend, she makes it all fit together.";
+        const customReply = "The secret is adapting fast: from websites to ERP, from frontend to backend, I make it all fit together";
         messages.innerHTML += `<div class="ai">AI: ${customReply}</div>`;
         messages.scrollTop = messages.scrollHeight;
         return; // 
@@ -304,6 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   
+    // ✅ الأزرار الجاهزة
     document.querySelectorAll(".ai-chat-suggestions button").forEach(btn => {
       btn.addEventListener("click", () => {
         const userMessage = btn.getAttribute("data-text");
@@ -329,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (hours >= 12 && hours < 18) {
       greetingText = "Good Afternoon, Guest ";
     } else {
-      greetingText = "Good Evening, Guest ";
+      greetingText = "Good Evening, Guest 🌙";
     }
   
     greetingEl.textContent = greetingText;
